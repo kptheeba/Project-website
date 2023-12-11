@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Box with Content</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        /* Add your custom styles here */
+        .box-container {
+            perspective: 1000px;
+        }
+
+        .box {
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(20deg) rotateY(30deg);
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            transition: transform 0.5s;
+        }
+
+        .box:hover {
+            transform: rotateX(0) rotateY(0);
+        }
+
+        .box-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            opacity: 0.8;
+            border: 1px solid #2980b9;
+        }
+
+        .box-face.front {
+            transform: translateZ(100px);
+        }
+
+        .box-face.back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .box-face.left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .box-face.right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .box-face.top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .box-face.bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .box-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container box-container">
+        <div class="box">
+            <div class="box-face front">
+                <div class="box-content">Front</div>
+            </div>
+            <div class="box-face back">
+                <div class="box-content">Back</div>
+            </div>
+            <div class="box-face left">
+                <div class="box-content">Left</div>
+            </div>
+            <div class="box-face right">
+                <div class="box-content">Right</div>
+            </div>
+            <div class="box-face top">
+                <div class="box-content">Top</div>
+            </div>
+            <div class="box-face bottom">
+                <div class="box-content">Bottom</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
